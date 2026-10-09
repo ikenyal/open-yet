@@ -1,0 +1,4 @@
+.venv/
+build/
+function.zip
+__pycache__/
