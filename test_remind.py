@@ -1,13 +1,14 @@
 """Tests for the code that decides WHEN. No AWS, no model.
 Run: .venv/bin/python -m pytest -q  (or: .venv/bin/python test_remind.py)
 """
+import json
 import os
 from datetime import datetime, timedelta, timezone
 
 os.environ.setdefault("REMIND_TOPIC_ARN", "arn:aws:sns:us-east-1:000000000000:t")
 os.environ.setdefault("REMIND_SCHEDULER_ROLE_ARN", "arn:aws:iam::000000000000:role/r")
 
-from remind import book, schedule_name  # noqa: E402
+from remind import SUBJECT, book, schedule_name  # noqa: E402
 
 
 class Conflict(Exception):
@@ -40,6 +41,10 @@ def test_books_one_minute_after_opening():
     assert s["ScheduleExpression"] == "at(2026-10-23T09:06:00)"
     assert s["ScheduleExpressionTimezone"] == "UTC"
     assert s["ActionAfterCompletion"] == "DELETE"
+    assert s["Target"]["Arn"] == "arn:aws:scheduler:::aws-sdk:sns:publish"
+    body = json.loads(s["Target"]["Input"])
+    assert body["Subject"] == SUBJECT and body["Message"] == "open"
+    assert body["TopicArn"] == os.environ["REMIND_TOPIC_ARN"]
 
 
 def test_second_request_does_not_book_twice():

@@ -18,6 +18,7 @@ Use it in any Strands agent:
 Environment: REMIND_TOPIC_ARN (SNS topic to publish to) and
 REMIND_SCHEDULER_ROLE_ARN (role EventBridge Scheduler assumes to publish).
 """
+import json
 import os
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -29,6 +30,7 @@ from strands.types.tools import ToolContext
 
 NOTIFY_AFTER = timedelta(minutes=1)
 PREFIX = "open-yet-"
+SUBJECT = "Open Yet? — it is open now"
 
 
 def schedule_name(opens: datetime) -> str:
@@ -61,9 +63,11 @@ def book(opens: Optional[datetime], closes: Optional[datetime], message: str,
             FlexibleTimeWindow={"Mode": "OFF"},
             ActionAfterCompletion="DELETE",
             Target={
-                "Arn": os.environ["REMIND_TOPIC_ARN"],
+                # Universal target: calls SNS Publish directly, so the email can have a subject.
+                "Arn": "arn:aws:scheduler:::aws-sdk:sns:publish",
                 "RoleArn": os.environ["REMIND_SCHEDULER_ROLE_ARN"],
-                "Input": message,
+                "Input": json.dumps({"TopicArn": os.environ["REMIND_TOPIC_ARN"],
+                                     "Subject": SUBJECT, "Message": message}),
                 "RetryPolicy": {"MaximumRetryAttempts": 3, "MaximumEventAgeInSeconds": 600},
             },
             Description="Open Yet? reminder: the entry window has opened.",
