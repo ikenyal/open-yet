@@ -2,3 +2,5 @@
 build/
 function.zip
 __pycache__/
+build-remind/
+function-remind.zip

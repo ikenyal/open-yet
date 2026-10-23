@@ -16,6 +16,8 @@ from pydantic import BaseModel, Field
 from strands import Agent
 from strands.models import BedrockModel
 
+from remind import remind_me_when_open
+
 MODEL_ID = "amazon.nova-pro-v1:0"
 
 
@@ -77,6 +79,14 @@ def _span(seconds: float) -> str:
     return " ".join(([f"{d}d"] if d else []) + ([f"{h}h"] if h else []) + [f"{mm}m"])
 
 
+def strictest(reading: Reading) -> tuple[Optional[datetime], datetime]:
+    """Strictest window: latest stated opening, earliest closing."""
+    opens_list = [_parse(w.opens_utc) for w in reading.windows if _has(w.opens_utc)]
+    opens = max(opens_list) if opens_list else None
+    closes = min(_parse(w.closes_utc) for w in reading.windows)
+    return opens, closes
+
+
 def verdict(reading: Reading, user_tz: str, now: Optional[datetime] = None) -> str:
     now = now or datetime.now(timezone.utc)
     tz = ZoneInfo(user_tz)
@@ -85,10 +95,7 @@ def verdict(reading: Reading, user_tz: str, now: Optional[datetime] = None) -> s
     if not reading.windows:
         return "I could not find an entry window in what you pasted. Paste the part with the dates."
 
-    # Strictest window: latest stated opening, earliest closing.
-    opens_list = [_parse(w.opens_utc) for w in reading.windows if _has(w.opens_utc)]
-    opens = max(opens_list) if opens_list else None
-    closes = min(_parse(w.closes_utc) for w in reading.windows)
+    opens, closes = strictest(reading)
 
     if opens and now < opens:
         line = f"NOT YET. Opens {local(opens)} — in {_span((opens - now).total_seconds())}."
@@ -152,12 +159,45 @@ def read(text: str) -> Reading:
     return agent(prompt, structured_output_model=Reading).structured_output
 
 
-def answer(text: str, user_tz: str = "Asia/Tokyo") -> str:
-    return verdict(read(text), user_tz)
+DECIDE = """You decide one thing: whether to book a reminder email for when an
+AWS Builder Center challenge opens. Code has already worked out whether the
+entry window is open, and when. You are given that verdict and what the user said.
+
+- Call remind_me_when_open only if the verdict starts with NOT YET and the user
+  is asking to be told, notified, emailed or reminded when it opens.
+- Otherwise do not call any tool.
+- Never write a date or time yourself. After deciding, reply with one short
+  sentence and nothing else."""
+
+
+def answer(text: str, user_tz: str = "Asia/Tokyo", request: str = "") -> str:
+    reading = read(text)
+    reply = verdict(reading, user_tz)
+    if not request.strip():
+        return reply
+    opens, closes = strictest(reading)
+    state = {"opens": opens, "closes": closes, "user_tz": user_tz,
+             "message": "It is open now. You can post your entry.\n\n" + reply.split("\n")[1]
+                        + "\n\n- Open Yet?"}
+    agent = Agent(
+        model=BedrockModel(model_id=MODEL_ID, region_name="us-east-1", temperature=0),
+        system_prompt=DECIDE,
+        tools=[remind_me_when_open],
+        callback_handler=None,
+    )
+    agent(f"Verdict: {reply.splitlines()[0]}\n\nThe user said: {request.strip()[:2000]}",
+          invocation_state=state)
+    # The model's own words never reach the user: if it chose to call the tool,
+    # code reports what the tool did; if not, the verdict stands alone, as before.
+    if "reminder" in state:
+        return reply + "\n\nReminder: " + state["reminder"]
+    return reply
 
 
 def handler(event, context):
-    """Lambda entry point. Body: {"text": "...", "timezone": "Asia/Tokyo"}."""
+    """Lambda entry point.
+    Body: {"text": "...", "timezone": "Asia/Tokyo", "request": "Tell me when it opens"}.
+    Without "request" it behaves exactly as before: a verdict and nothing else."""
     try:
         body = json.loads(event.get("body") or "{}")
     except json.JSONDecodeError:
@@ -166,11 +206,12 @@ def handler(event, context):
     if not text:
         return _resp(400, 'Paste the challenge page (and its terms, if you have them) into "text".')
     tz = body.get("timezone") or "Asia/Tokyo"
+    request = str(body.get("request") or "")
     try:
         ZoneInfo(tz)
     except Exception:
         return _resp(400, f'I do not recognise the time zone {tz!r}. Try something like "Asia/Tokyo".')
-    return _resp(200, answer(text[:30000], tz))
+    return _resp(200, answer(text[:30000], tz, request))
 
 
 def _resp(code: int, text: str) -> dict:
