@@ -1,0 +1,27 @@
+{
+  "_note": "Written 2026-10-24 before any run. Labels by the coding agent: book only when the verdict is NOT YET and the request asks to be told when it opens. A reminder for the closing time is out of scope for this tool, so it is labeled no.",
+  "situations": {
+    "not_yet":  {"opens_in_min": 120,  "closes_in_min": 4320},
+    "open":     {"opens_in_min": -60,  "closes_in_min": 4320},
+    "closed":   {"opens_in_min": -4320, "closes_in_min": -60},
+    "no_start": {"opens_in_min": null, "closes_in_min": 4320}
+  },
+  "requests": [
+    {"id": "n01", "notify": true,  "text": "Can you let me know when it opens?"},
+    {"id": "n02", "notify": true,  "text": "Email me the minute it opens."},
+    {"id": "n03", "notify": true,  "text": "Remind me when entries open."},
+    {"id": "n04", "notify": true,  "text": "Ping me when I can post."},
+    {"id": "n05", "notify": true,  "text": "I'll be in meetings at 4pm. Can you make sure I don't miss the start?"},
+    {"id": "n06", "notify": true,  "text": "開いたら教えて"},
+    {"id": "n07", "notify": true,  "text": "Notify me when it's open, please."},
+    {"id": "n08", "notify": true,  "text": "tell me when it opens so I can submit"},
+    {"id": "n09", "notify": true,  "text": "Can you remind me when it opens? I'm traveling that day."},
+    {"id": "x01", "notify": false, "text": "What tags do I need?"},
+    {"id": "x02", "notify": false, "text": "When does it close?"},
+    {"id": "x03", "notify": false, "text": "No need to remind me, I'll check myself."},
+    {"id": "x04", "notify": false, "text": "Thanks!"},
+    {"id": "x05", "notify": false, "text": "Is my entry allowed if I published it last week?"},
+    {"id": "x06", "notify": false, "text": "Don't email me. Just tell me if I can post now."},
+    {"id": "x07", "notify": false, "text": "Remind me a day before it closes."}
+  ]
+}

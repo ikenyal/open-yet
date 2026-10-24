@@ -176,6 +176,11 @@ def answer(text: str, user_tz: str = "Asia/Tokyo", request: str = "") -> str:
     if not request.strip():
         return reply
     opens, closes = strictest(reading)
+    return reply + remind_step(reply, opens, closes, user_tz, request)
+
+
+def remind_step(reply: str, opens, closes, user_tz: str, request: str) -> str:
+    """The agent decides whether to call the tool; code reports what happened."""
     state = {"opens": opens, "closes": closes, "user_tz": user_tz,
              "message": "It is open now. You can post your entry.\n\n" + reply.split("\n")[1]
                         + "\n\n- Open Yet?"}
@@ -190,8 +195,8 @@ def answer(text: str, user_tz: str = "Asia/Tokyo", request: str = "") -> str:
     # The model's own words never reach the user: if it chose to call the tool,
     # code reports what the tool did; if not, the verdict stands alone, as before.
     if "reminder" in state:
-        return reply + "\n\nReminder: " + state["reminder"]
-    return reply
+        return "\n\nReminder: " + state["reminder"]
+    return ""
 
 
 def handler(event, context):
