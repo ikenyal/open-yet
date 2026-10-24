@@ -43,7 +43,11 @@ aws iam put-role-policy --role-name $FN_ROLE --policy-name remind --policy-docum
    {\"Effect\":\"Allow\",\"Action\":\"iam:PassRole\",\"Resource\":\"$SCHED_ROLE_ARN\",
     \"Condition\":{\"StringEquals\":{\"iam:PassedToService\":\"scheduler.amazonaws.com\"}}}]}"
 
-# 4. Package: same dependencies as the "before" function, plus remind.py
+# 4. Package: dependencies for the Lambda runtime (built once into build/), plus the code
+if [[ ! -d build ]]; then
+  python3 -m pip install -q -r requirements.txt -t build --platform manylinux2014_x86_64 \
+    --only-binary=:all: --python-version 3.12 --implementation cp
+fi
 rm -rf build-remind function-remind.zip
 cp -R build build-remind
 cp agent.py remind.py build-remind/
