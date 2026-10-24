@@ -49,8 +49,17 @@ def latency():
 
 
 if __name__ == "__main__":
-    for f in (decide, time, lambda: time("raw-time_cases2.json"), latency):
+    steps = [
+        ("Does the agent book when, and only when, it should?", decide),
+        ("Times, first set (where the error was found), before the fix", lambda: time("raw-time.json")),
+        ("Times, first set, after the fix", lambda: time("raw-time-tune-v2.json")),
+        ("Times, second set (written before the fix), before the fix", lambda: time("raw-time_cases2-before-fix.json")),
+        ("Times, second set, after the fix: the article's table", lambda: time("raw-time_cases2.json")),
+        ("How late the email is", latency),
+    ]
+    for title, f in steps:
+        print(f"\n== {title}")
         try:
             f()
-        except FileNotFoundError:
-            pass
+        except FileNotFoundError as e:
+            print("  (no data:", e.filename, ")")
