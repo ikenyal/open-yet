@@ -5,6 +5,7 @@ Can I post my AWS Builder Center challenge entry right now? Paste the challenge 
 A Strands agent on AWS Lambda, reading with Amazon Nova Pro on Amazon Bedrock, with one tool, `remind_me_when_open`, that books the email with Amazon EventBridge Scheduler and Amazon SNS.
 
 - Article for the Weekend Challenge "Give your Agent a Tool": [ARTICLE LINK]
+- Demo video (under 2 minutes): https://youtu.be/T8Q7sD_7cb0
 - The first version and its article (October 9, 2026): [`ARTICLE.md`](ARTICLE.md)
 
 ## The design in one rule
