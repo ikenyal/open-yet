@@ -19,7 +19,7 @@ os.environ.setdefault("REMIND_TOPIC_ARN", "arn:aws:sns:us-east-1:000000000000:be
 os.environ.setdefault("REMIND_SCHEDULER_ROLE_ARN", "arn:aws:iam::000000000000:role/bench")
 
 import remind  # noqa: E402
-from agent import MODEL_ID, SYSTEM, Reading, Window, read, remind_step, strictest, verdict  # noqa: E402
+from agent import MODEL_ID, Reading, Window, read, remind_step, strictest, verdict  # noqa: E402
 from strands import Agent, tool  # noqa: E402
 from strands.models import BedrockModel  # noqa: E402
 
@@ -78,12 +78,13 @@ opened yet and the user asks to be told when it opens. Pass fire_time_utc as
 ISO-8601 UTC (e.g. 2026-10-09T07:01:00Z): one minute after the window opens.
 If several texts give different opening times, use the latest one.
 
-How to read times (the same rules the extraction step is given):
-""" + SYSTEM.split("Entry windows:")[1].split("Discrepancies")[0]
+How to read times (the rules the extraction step was given in the first run, frozen here
+so the baseline does not change when the extraction step does):
+""" + '\n- Record one window per text that states one.\n- Use UTC if the text gives it. If only PT is given, convert: PDT = UTC-7 until the\n  first Sunday of November 2026, PST = UTC-8 after. "12:00 AM PT on Oct 9" is\n  2026-10-09T07:00:00Z. A date with no time, used as a closing day, means 23:59 PT.\n- opens_utc is null ONLY when the text gives no explicit opening date\n  (for example "between today and ..."). A rule like "content published on or\n  after October 2" is an eligibility rule, not the entry window.\n\n'
 
 
-def run_time(repeat):
-    cases = json.loads((HERE / "time_cases.json").read_text())
+def run_time(repeat, set_name="time_cases"):
+    cases = json.loads((HERE / f"{set_name}.json").read_text())
     rows = []
     for r in range(repeat):
         for c in cases:
@@ -116,12 +117,13 @@ def run_time(repeat):
                    "baseline_raw": got[0] if got else None, "baseline": iso(base)}
             rows.append(row)
             print(row, flush=True)
-    (HERE / "raw-time.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n")
+    (HERE / ("raw-time.json" if set_name == "time_cases" else f"raw-{set_name}.json")).write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n")
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("what", choices=["decide", "time"])
     p.add_argument("--repeat", type=int, default=3)
+    p.add_argument("--set", default="time_cases", help="time: time_cases (tuning) or time_cases2 (held out)")
     a = p.parse_args()
-    (run_decide if a.what == "decide" else run_time)(a.repeat)
+    run_decide(a.repeat) if a.what == "decide" else run_time(a.repeat, a.set)

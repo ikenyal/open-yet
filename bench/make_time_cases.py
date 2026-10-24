@@ -73,7 +73,63 @@ def utc(local: str, zone: str) -> str:
     return d.astimezone(ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-out = [{"id": i, "user_tz": tz, "text": text, "opens_utc": utc(*o)} for i, tz, text, o in CASES]
-Path(__file__).with_name("time_cases.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
-for c in out:
-    print(c["id"], c["opens_utc"])
+# Second set, written 2026-10-24 after the first set exposed the daylight-saving error and
+# BEFORE the fix. It is scored once, after the fix is frozen. Different wording and zones.
+CASES2 = [
+    ("u01", "Asia/Tokyo",
+     "Entries open Saturday, November 7, 2026, 12:00 AM Pacific Time and close November 10, 2026, 12:00 PM Pacific Time.",
+     ("2026-11-07 00:00", PT)),
+    ("u02", "Asia/Tokyo",
+     "Opens Nov 14, 2026 9:00 AM CT, closes Nov 16, 2026 9:00 AM CT.",
+     ("2026-11-14 09:00", "America/Chicago")),
+    ("u03", "America/Los_Angeles",
+     "Registration window: 2026-11-21 08:00 GMT to 2026-11-23 08:00 GMT.",
+     ("2026-11-21 08:00", UTC)),
+    ("u04", "Asia/Tokyo",
+     "Opens 24 November 2026 at 10:00 UK time; closes 26 November 2026 at 10:00 UK time.",
+     ("2026-11-24 10:00", "Europe/London")),
+    ("u05", "America/Los_Angeles",
+     "受付開始 2026年12月9日(水) 0:00(日本時間)、締切 12月11日(金) 23:59(日本時間)",
+     ("2026-12-09 00:00", "Asia/Tokyo")),
+    ("u06", "Asia/Tokyo",
+     "The challenge opens Monday, November 30, 2026 at 6:00 AM AEDT and closes December 2, 2026 at 6:00 AM AEDT.",
+     ("2026-11-30 06:00", "Australia/Sydney")),
+    ("u07", "Asia/Tokyo",
+     "Opens November 2, 2026 at 12:00 AM PT. Closes November 4, 2026 at 11:59 PM PT.",
+     ("2026-11-02 00:00", PT)),
+    ("u08", "Asia/Tokyo",
+     "Opens October 31, 2026 at 11:00 PM PT. Closes November 3, 2026 at 11:59 PM PT.",
+     ("2026-10-31 23:00", PT)),
+    ("u09", "Asia/Tokyo",
+     "Challenge page: Entries open November 19, 2026 at 12:00 AM PT and close November 22, 2026 at 11:59 PM PT.\n\n"
+     "Email from the organizers: Reminder, the challenge opens November 19, 2026 at 8:00 AM PT and closes November 22, 2026 at 11:59 PM PT.",
+     ("2026-11-19 08:00", PT)),
+    ("u10", "Asia/Tokyo",
+     "Window: 2026-12-15T09:00:00-08:00 to 2026-12-17T09:00:00-08:00.",
+     ("2026-12-15 17:00", UTC)),
+    ("u11", "Asia/Tokyo",
+     "Kicks off at 7 PM Eastern on December 3, 2026 and ends at 7 PM Eastern on December 6, 2026.",
+     ("2026-12-03 19:00", ET)),
+    ("u12", "America/New_York",
+     "Opens 2026-11-08 at 15:00 KST. Closes 2026-11-10 at 15:00 KST.",
+     ("2026-11-08 15:00", "Asia/Seoul")),
+    ("u13", "Asia/Tokyo",
+     "Starts November 12, 2026, 10:00 a.m. Mountain Time; ends November 14, 2026, 10:00 a.m. Mountain Time.",
+     ("2026-11-12 10:00", "America/Denver")),
+    ("u14", "Asia/Tokyo",
+     "Entries open December 20, 2026 at midnight PT (the start of the day) and close December 22, 2026 at 11:59 PM PT.",
+     ("2026-12-20 00:00", PT)),
+    ("u15", "Asia/Tokyo",
+     "Opens 2027-01-15 00:00 CET. Closes 2027-01-17 23:59 CET.",
+     ("2027-01-15 00:00", "Europe/Paris")),
+    ("u16", "Europe/Berlin",
+     "Opens Friday, November 27, 2026 at 4:00 PM JST. Closes Sunday, November 29, 2026 at 4:00 PM JST.",
+     ("2026-11-27 16:00", "Asia/Tokyo")),
+]
+
+
+for cases, name in ((CASES, "time_cases.json"), (CASES2, "time_cases2.json")):
+    out = [{"id": i, "user_tz": tz, "text": text, "opens_utc": utc(*o)} for i, tz, text, o in cases]
+    Path(__file__).with_name(name).write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+    for c in out:
+        print(name, c["id"], c["opens_utc"])

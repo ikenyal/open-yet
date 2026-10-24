@@ -24,9 +24,9 @@ def decide():
     print("    by situation:", dict(Counter(r["situation"] for r in called)))
 
 
-def time():
-    rows = json.loads((HERE / "raw-time.json").read_text())
-    print(f"time: {len(rows)} runs ({len({r['repeat'] for r in rows})} repeats)")
+def time(name="raw-time.json"):
+    rows = json.loads((HERE / name).read_text())
+    print(f"{name}: {len(rows)} runs ({len({r['repeat'] for r in rows})} repeats)")
     for k, name in (("ours", "Open Yet? (code holds the time)"), ("baseline", "model writes the time")):
         ok = sum(r[k] == r["want"] for r in rows)
         wrong = sorted({(r["id"], r[k]) for r in rows if r[k] != r["want"]})
@@ -37,7 +37,7 @@ def time():
 
 
 if __name__ == "__main__":
-    for f in (decide, time):
+    for f in (decide, time, lambda: time("raw-time_cases2.json")):
         try:
             f()
         except FileNotFoundError:
