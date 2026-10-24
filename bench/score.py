@@ -28,7 +28,7 @@ def decide():
 def time(name="raw-time.json"):
     rows = json.loads((HERE / name).read_text())
     print(f"{name}: {len(rows)} runs ({len({r['repeat'] for r in rows})} repeats)")
-    for k, name in (("ours", "Open Yet? (code holds the time)"), ("baseline", "model writes the time")):
+    for k, name in (("ours", "Open Yet?"), ("baseline", "reference: model writes the time")):
         ok = sum(r[k] == r["want"] for r in rows)
         wrong = sorted({(r["id"], r[k]) for r in rows if r[k] != r["want"]})
         opened = lambda r: (datetime.fromisoformat(r["want"][:-1]) - timedelta(minutes=1)).isoformat() + "Z"  # noqa: E731
