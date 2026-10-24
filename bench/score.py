@@ -40,8 +40,16 @@ def time(name="raw-time.json"):
             print(f"    {i}: want {want}, got {got}")
 
 
+def latency():
+    rows = json.loads((HERE / "raw-latency.json").read_text())
+    late = sorted(r["late_s"] for r in rows)
+    print(f"latency: {len(rows)} real schedules; SNS published this many seconds after the scheduled time: "
+          f"min {late[0]:.1f}, median {(late[len(late)//2 - 1] + late[len(late)//2]) / 2:.1f}, max {late[-1]:.1f}; "
+          f"early: {sum(x < 0 for x in late)}")
+
+
 if __name__ == "__main__":
-    for f in (decide, time, lambda: time("raw-time_cases2.json")):
+    for f in (decide, time, lambda: time("raw-time_cases2.json"), latency):
         try:
             f()
         except FileNotFoundError:
