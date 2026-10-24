@@ -50,8 +50,11 @@ def run_decide(repeat):
             now = datetime.now(timezone.utc)
             opens = now + timedelta(minutes=w["opens_in_min"]) if w["opens_in_min"] is not None else None
             closes = now + timedelta(minutes=w["closes_in_min"])
-            reading = Reading(windows=[Window(source="challenge page", opens_utc=iso(opens),
-                                              closes_utc=iso(closes))], discrepancies=[])
+            hm = lambda d: d.strftime("%Y-%m-%d %H:%M") if d else None  # noqa: E731
+            reading = Reading(windows=[Window(source="challenge page", opens_local=hm(opens),
+                                              opens_zone="UTC" if opens else None,
+                                              closes_local=hm(closes), closes_zone="UTC")],
+                              discrepancies=[])
             reply = verdict(reading, "Asia/Tokyo", now)
             o, c = strictest(reading)
             for q in spec["requests"]:
@@ -83,7 +86,7 @@ so the baseline does not change when the extraction step does):
 """ + '\n- Record one window per text that states one.\n- Use UTC if the text gives it. If only PT is given, convert: PDT = UTC-7 until the\n  first Sunday of November 2026, PST = UTC-8 after. "12:00 AM PT on Oct 9" is\n  2026-10-09T07:00:00Z. A date with no time, used as a closing day, means 23:59 PT.\n- opens_utc is null ONLY when the text gives no explicit opening date\n  (for example "between today and ..."). A rule like "content published on or\n  after October 2" is an eligibility rule, not the entry window.\n\n'
 
 
-def run_time(repeat, set_name="time_cases"):
+def run_time(repeat, set_name="time_cases", out=None):
     cases = json.loads((HERE / f"{set_name}.json").read_text())
     rows = []
     for r in range(repeat):
@@ -117,7 +120,7 @@ def run_time(repeat, set_name="time_cases"):
                    "baseline_raw": got[0] if got else None, "baseline": iso(base)}
             rows.append(row)
             print(row, flush=True)
-    (HERE / ("raw-time.json" if set_name == "time_cases" else f"raw-{set_name}.json")).write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n")
+    (HERE / (out or ("raw-time.json" if set_name == "time_cases" else f"raw-{set_name}.json"))).write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n")
 
 
 if __name__ == "__main__":
@@ -125,5 +128,6 @@ if __name__ == "__main__":
     p.add_argument("what", choices=["decide", "time"])
     p.add_argument("--repeat", type=int, default=3)
     p.add_argument("--set", default="time_cases", help="time: time_cases (tuning) or time_cases2 (held out)")
+    p.add_argument("--out", help="file name for the raw results (default by set)")
     a = p.parse_args()
-    run_decide(a.repeat) if a.what == "decide" else run_time(a.repeat, a.set)
+    run_decide(a.repeat) if a.what == "decide" else run_time(a.repeat, a.set, a.out)

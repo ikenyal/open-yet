@@ -8,7 +8,7 @@ the same every time.
 """
 import json
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from zoneinfo import ZoneInfo
 
@@ -23,11 +23,18 @@ MODEL_ID = "amazon.nova-pro-v1:0"
 
 class Window(BaseModel):
     source: str = Field(description="Which text this came from, e.g. 'challenge page' or 'terms'")
-    opens_utc: Optional[str] = Field(
+    opens_local: Optional[str] = Field(
         default=None,
-        description="Opening time as ISO-8601 UTC (e.g. 2026-10-09T07:00:00Z). "
+        description="Opening date and time exactly as the text states it, in the text's own "
+                    "time zone, as 'YYYY-MM-DD HH:MM' (24-hour). Do not convert it. "
                     "Null if this text gives no explicit opening date and time.")
-    closes_utc: str = Field(description="Closing time as ISO-8601 UTC.")
+    opens_zone: Optional[str] = Field(
+        default=None,
+        description="The time zone the opening time is written in, as an IANA name "
+                    "(e.g. 'America/Los_Angeles' for PT, PDT or PST) or as a UTC offset "
+                    "written in the text (e.g. '-08:00'). Null if opens_local is null.")
+    closes_local: str = Field(description="Closing date and time as stated, 'YYYY-MM-DD HH:MM', not converted.")
+    closes_zone: str = Field(description="The time zone the closing time is written in, as for opens_zone.")
     required_tags: list[str] = Field(
         default_factory=list,
         description="Every article tag this text says is required, exactly as written (e.g. '#agents', 'agent').")
@@ -48,10 +55,12 @@ and sometimes its terms, a Space rule, or an email. Extract facts. Do not chat.
 
 Entry windows:
 - Record one window per text that states one.
-- Use UTC if the text gives it. If only PT is given, convert: PDT = UTC-7 until the
-  first Sunday of November 2026, PST = UTC-8 after. "12:00 AM PT on Oct 9" is
-  2026-10-09T07:00:00Z. A date with no time, used as a closing day, means 23:59 PT.
-- opens_utc is null ONLY when the text gives no explicit opening date
+- Copy each date and time as written, in the zone it is written in. Never convert
+  between time zones and never apply daylight saving yourself: code does that.
+  "12:00 AM PT on Oct 9, 2026" is opens_local "2026-10-09 00:00", opens_zone
+  "America/Los_Angeles". A date with no time, used as a closing day, means 23:59
+  in the zone the text uses (PT if it names none).
+- opens_local is null ONLY when the text gives no explicit opening date
   (for example "between today and ..."). A rule like "content published on or
   after October 2" is an eligibility rule, not the entry window.
 
@@ -72,6 +81,35 @@ def _parse(s: str) -> datetime:
     return datetime.fromisoformat(s.replace("Z", "+00:00")).astimezone(timezone.utc)
 
 
+_OFFSET = re.compile(r"^(?:UTC|GMT)?\s*([+-])(\d{1,2}):?(\d{2})$")
+
+
+def _zone(name: str):
+    """IANA name, or a UTC offset as written ('-08:00', 'UTC+9:00'). Daylight saving is
+    the time zone database's job, not the model's."""
+    name = name.strip()
+    if name.upper() in ("UTC", "GMT", "Z"):
+        return timezone.utc
+    m = _OFFSET.match(name.upper())
+    if m:
+        sign = 1 if m.group(1) == "+" else -1
+        return timezone(sign * timedelta(hours=int(m.group(2)), minutes=int(m.group(3))))
+    return ZoneInfo(name)  # raises for an unknown name: a window we cannot place is not guessed
+
+
+def _at(local: str, zone: str) -> datetime:
+    d = datetime.strptime(local.strip()[:16].replace("T", " "), "%Y-%m-%d %H:%M")
+    return d.replace(tzinfo=_zone(zone)).astimezone(timezone.utc)
+
+
+def opens_of(w: "Window") -> Optional[datetime]:
+    return _at(w.opens_local, w.opens_zone) if _has(w.opens_local) and _has(w.opens_zone) else None
+
+
+def closes_of(w: "Window") -> datetime:
+    return _at(w.closes_local, w.closes_zone)
+
+
 def _span(seconds: float) -> str:
     m = int(seconds // 60)
     d, rem = divmod(m, 1440)
@@ -81,9 +119,9 @@ def _span(seconds: float) -> str:
 
 def strictest(reading: Reading) -> tuple[Optional[datetime], datetime]:
     """Strictest window: latest stated opening, earliest closing."""
-    opens_list = [_parse(w.opens_utc) for w in reading.windows if _has(w.opens_utc)]
+    opens_list = [o for o in map(opens_of, reading.windows) if o]
     opens = max(opens_list) if opens_list else None
-    closes = min(_parse(w.closes_utc) for w in reading.windows)
+    closes = min(closes_of(w) for w in reading.windows)
     return opens, closes
 
 
@@ -110,15 +148,15 @@ def verdict(reading: Reading, user_tz: str, now: Optional[datetime] = None) -> s
     notes: list[str] = []
     closes_by = {}
     for w in reading.windows:
-        closes_by.setdefault(_parse(w.closes_utc), []).append(w.source)
+        closes_by.setdefault(closes_of(w), []).append(w.source)
     if len(closes_by) > 1:
         parts = "; ".join(f"{', '.join(src)} says {local(t)}" for t, src in sorted(closes_by.items()))
         notes.append(f"The texts give different deadlines ({parts}). "
                      f"Safe choice: treat {local(closes)} as the deadline.")
     opens_by = {}
     for w in reading.windows:
-        if _has(w.opens_utc):
-            opens_by.setdefault(_parse(w.opens_utc), []).append(w.source)
+        if opens_of(w):
+            opens_by.setdefault(opens_of(w), []).append(w.source)
     if len(opens_by) > 1:
         parts = "; ".join(f"{', '.join(src)} says {local(t)}" for t, src in sorted(opens_by.items()))
         notes.append(f"The texts give different start times ({parts}). "
