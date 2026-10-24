@@ -4,6 +4,7 @@
 """
 import json
 from collections import Counter
+from datetime import datetime, timedelta
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -30,7 +31,10 @@ def time(name="raw-time.json"):
     for k, name in (("ours", "Open Yet? (code holds the time)"), ("baseline", "model writes the time")):
         ok = sum(r[k] == r["want"] for r in rows)
         wrong = sorted({(r["id"], r[k]) for r in rows if r[k] != r["want"]})
-        print(f"  {name}: right {ok}/{len(rows)}")
+        opened = lambda r: (datetime.fromisoformat(r["want"][:-1]) - timedelta(minutes=1)).isoformat() + "Z"  # noqa: E731
+        before = sum(1 for r in rows if r[k] and r[k] < opened(r))
+        other = len(rows) - ok - before
+        print(f"  {name}: right {ok}/{len(rows)}; email before the window opens {before}; other wrong times {other}")
         for i, got in wrong:
             want = next(r["want"] for r in rows if r["id"] == i)
             print(f"    {i}: want {want}, got {got}")
