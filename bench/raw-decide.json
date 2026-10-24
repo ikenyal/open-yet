@@ -1,0 +1,1730 @@
+[
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n01",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n02",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n03",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n04",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n05",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n06",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n07",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n08",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "n09",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:28 your time, one minute after it opens (open-yet-20261024T0227Z)."
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "not_yet",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "open",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "closed",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 0,
+  "situation": "no_start",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n01",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n02",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n03",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n04",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n05",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n06",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n07",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n08",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "n09",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:30 your time, one minute after it opens (open-yet-20261024T0229Z)."
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "not_yet",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "open",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "closed",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 1,
+  "situation": "no_start",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n01",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n02",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n03",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n04",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n05",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n06",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n07",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n08",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "n09",
+  "expect_book": true,
+  "called_tool": true,
+  "booked": true,
+  "reply_tail": "Reminder: BOOKED: one email at Sat Oct 24, 11:33 your time, one minute after it opens (open-yet-20261024T0232Z)."
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "not_yet",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "open",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": true,
+  "booked": false,
+  "reply_tail": "Reminder: NOT BOOKED: the window is already open. No reminder needed."
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "closed",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n08",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "n09",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x01",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x02",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x03",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x04",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x05",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x06",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ },
+ {
+  "repeat": 2,
+  "situation": "no_start",
+  "request": "x07",
+  "expect_book": false,
+  "called_tool": false,
+  "booked": false,
+  "reply_tail": ""
+ }
+]
