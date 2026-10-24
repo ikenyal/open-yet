@@ -28,10 +28,15 @@ print(json.dumps({"body": json.dumps(b)}))' > $tmp/p.json
 }
 
 if [[ $MODE == dst ]]; then
+  # The model's answer can differ from run to run, so ask each function five times
+  # and print the first line of every reply.
   TEXT="Weekend Challenge: Demo. Entries open November 6, 2026 at 12:00 AM PT and close November 9, 2026 at 1:00 PM PT."
-  ask open-yet "$TEXT"
-  echo "----------------------------------------"
-  ask open-yet-remind "$TEXT"
+  echo "> $TEXT"
+  for fn in open-yet open-yet-remind; do
+    echo
+    echo "\$ $fn   (5 runs)"
+    for i in 1 2 3 4 5; do ask $fn "$TEXT" | grep -m1 -E '^(NOT YET|YES|NO|CLOSED)'; done
+  done
   exit 0
 fi
 
